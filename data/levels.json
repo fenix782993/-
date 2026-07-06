@@ -1,0 +1,7 @@
+[
+  { "level": 1, "expRequired": 0, "title": "Яйцо Феникса" },
+  { "level": 11, "expRequired": 50000, "title": "Птенец" },
+  { "level": 51, "expRequired": 500000, "title": "Молодой Ястреб" },
+  { "level": 151, "expRequired": 5000000, "title": "Огненный Феникс" },
+  { "level": 351, "expRequired": 50000000, "title": "Бессмертный Лорд" }
+] 

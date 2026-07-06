@@ -1,0 +1,9 @@
+.skins-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.skin-item { background: var(--card-bg); border: 1px solid var(--border); padding: 10px 4px; border-radius: 8px; text-align: center; }
+.skin-item.locked { opacity: 0.3; border-style: dashed; }
+
+.admin-scroll { max-height: 50vh; overflow-y: auto; padding-right: 4px; }
+.adm-section { background: var(--card-light); border: 1px solid var(--border); padding: 8px; border-radius: 8px; margin-bottom: 10px; }
+.adm-section h5 { font-size: 11px; color: var(--orange); text-transform: uppercase; margin-bottom: 6px; }
+.adm-section button { width: 100%; padding: 7px; background: #262936; border: 1px solid var(--border); color: #fff; font-size: 11px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; text-align: left; }
+.adm-section button:active { background: var(--orange); } 

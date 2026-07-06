@@ -1,0 +1,5 @@
+[
+  { "id": "sub_tg", "title": "Подписка на Telegram канал", "reward": 5000, "type": "social" },
+  { "id": "watch_yt", "title": "Посмотреть новое видео на YouTube", "reward": 3000, "type": "video" },
+  { "id": "tweet", "title": "Сделать ретвит в X (Twitter)", "reward": 4000, "type": "social" }
+] 

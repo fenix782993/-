@@ -1,0 +1,6 @@
+[
+  { "id": "farm", "name": "Bitcoin Farm", "cost": 1000, "pph": 80, "cat": "market" },
+  { "id": "node", "name": "Solana Node", "cost": 5000, "pph": 450, "cat": "market" },
+  { "id": "law", "name": "Лицензия ЕС", "cost": 8000, "pph": 700, "cat": "legal" },
+  { "id": "team", "name": "Топ Разработчик", "cost": 15000, "pph": 1500, "cat": "team" }
+] 

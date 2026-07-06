@@ -1,0 +1,16 @@
+.section-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; }
+.combo-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; margin-bottom: 15px; }
+.combo-header { font-size: 11px; font-weight: bold; color: var(--text-muted); margin-bottom: 6px; }
+.combo-slots { display: flex; gap: 6px; }
+.c-slot { flex:1; height: 45px; background: var(--card-light); border: 1px dashed var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+
+.tabs-row { display: flex; gap: 4px; margin-bottom: 15px; }
+.tab-sub { flex: 1; background: var(--card-bg); border: 1px solid var(--border); color: var(--text-muted); padding: 6px; border-radius: 20px; font-size: 11px; cursor: pointer; }
+.tab-sub.active { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: #000; font-weight: bold; border: none; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.mine-card { background: var(--card-bg); border: 1px solid var(--border); padding: 12px; border-radius: var(--radius); display: flex; flex-direction: column; justify-content: space-between; min-height: 115px; }
+.mine-card h4 { font-size: 13px; }
+.mine-card p { font-size: 10px; color: var(--text-muted); margin: 4px 0; }
+.buyCardBtn { background: var(--card-light); border: 1px solid var(--border); color: var(--yellow); padding: 5px; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer; }
+.buyCardBtn:disabled { opacity: 0.4; cursor: not-allowed; } 

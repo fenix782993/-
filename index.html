@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
+    <title>Fenix Combat Pro</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/tasks.css">
+    <link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+
+<div class="game" id="game-container">
+
+    <div id="loader">
+        <div class="loader-logo">🔥</div>
+        <div class="loader-text">FENIX COMBAT</div>
+    </div>
+
+    <div class="top">
+        <div class="user-block">
+            <span class="avatar">🦅</span>
+            <div>
+                <div id="user-name" class="username">Fenix Player</div>
+                <div class="level">LVL <span id="lvl">1</span> (<span id="stage-title">Яйцо</span>)</div>
+            </div>
+        </div>
+        <div class="coins">
+            <span id="coins">0</span> 🪙
+        </div>
+    </div>
+
+    <div class="screen active" id="screen-home">
+        <div class="income-info">Доход в час: <span id="pph">0</span></div>
+        <div class="tap-area">
+            <div class="circle" id="tapBtn">
+                <img src="assets/images/hamster.png" id="phoenix-img" alt="🔥" style="width:130px; height:130px; object-fit:contain; onerror:this.style.display='none';">
+            </div>
+        </div>
+        <div class="stats-row">
+            <div class="stat-box">За тап: <span id="tap-power">1</span></div>
+            <div class="stat-box">Всего тапов: <span id="stat-taps">0</span></div>
+        </div>
+        <div class="energy-section">
+            <div class="energy-text">⚡ <span id="energy-val">1000</span> / <span id="energy-max">1000</span></div>
+            <div class="energy-bar">
+                <div id="energyFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="screen" id="screen-mine">
+        <div class="section-title">Шахты & Майнинг</div>
+        <div class="combo-box">
+            <div class="combo-header">🌟 DAILY COMBO [23:59:59]</div>
+            <div class="combo-slots">
+                <div class="c-slot">?</div><div class="c-slot">?</div><div class="c-slot">?</div>
+            </div>
+        </div>
+        <div class="tabs-row">
+            <button class="tab-sub active" data-cat="all">Все</button>
+            <button class="tab-sub" data-cat="market">Маркет</button>
+            <button class="tab-sub" data-cat="legal">Законы</button>
+            <button class="tab-sub" data-cat="team">Команда</button>
+        </div>
+        <div id="cards-grid" class="cards-grid"></div>
+    </div>
+
+    <div class="screen" id="screen-earn">
+        <div class="section-title">Задания & Награды</div>
+        <div class="panel-box">
+            <h3>📡 Daily Morse (15,000 🪙)</h3>
+            <div id="morse-view" class="morse-display">---</div>
+        </div>
+        <div class="panel-box">
+            <h3>🎁 Активация промокода</h3>
+            <input type="text" id="promo-input" placeholder="Введите промокод">
+            <button class="btn-action" id="activate-promo-btn">Активировать</button>
+        </div>
+    </div>
+
+    <div class="screen" id="screen-friends">
+        <div class="section-title">Рефералы</div>
+        <div class="panel-box" style="text-align: center;">
+            <div class="link-box" id="ref-link">https://t.me/your_bot?start=user</div>
+            <button class="btn-action" id="copy-ref">📋 Скопировать ссылку</button>
+        </div>
+    </div>
+
+    <div class="screen" id="screen-rank">
+        <div class="section-title">Топ Игроков</div>
+        <div id="leaderboard-list" class="leader-list"></div>
+    </div>
+
+    <div class="screen" id="screen-pvp">
+        <div class="section-title">⚔️ PvP Арена</div>
+        <div class="panel-box">
+            <h3>Создать дуэль</h3>
+            <input type="number" id="pvp-bet" placeholder="Ставка коинов">
+            <button class="btn-action" id="pvp-create">Создать лобби</button>
+        </div>
+        <h4 style="margin-top: 15px; margin-bottom: 5px;">Доступные сражения:</h4>
+        <div id="pvp-list"></div>
+    </div>
+
+    <div class="screen" id="screen-profile">
+        <div class="section-title">Гардероб & Эволюция</div>
+        <div id="skins-container" class="skins-grid"></div>
+        
+        <div class="panel-box" style="margin-top: 25px; border: 1px dashed #ff4757;">
+            <h3>🔒 Доступ разработчика</h3>
+            <input type="password" id="secret-input" placeholder="Введи ключ доступа">
+            <button class="btn-action" id="check-secret-btn" style="background: #333; color:#fff;">Войти в админку</button>
+        </div>
+    </div>
+
+    <div class="screen" id="screen-admin">
+        <div class="section-title" style="color: #ff4757;">👑 Панель Администратора</div>
+        <div class="admin-scroll">
+            <div class="adm-section">
+                <h5>Управление монетами:</h5>
+                <button id="adm-g-1m">1. Выдать 1,000,000 🪙</button>
+                <button id="adm-g-100m">2. Выдать 100,000,000 🪙</button>
+                <button id="adm-t-1m">3. Списать 1,000,000 🪙</button>
+                <button id="adm-clear-c">4. Обнулить баланс 🪙</button>
+            </div>
+            <div class="adm-section">
+                <h5>Уровни и Тапы:</h5>
+                <button id="adm-max-l">6. Установить макс. 600 LVL</button>
+                <button id="adm-min-l">6. Сбросить на 1 LVL</button>
+                <button id="adm-add-t">7. Прибавить +10,000 тапов</button>
+                <button id="adm-x2-t">8. Умножить силу тапа на x2</button>
+            </div>
+            <div class="adm-section">
+                <h5>Система промокодов:</h5>
+                <input type="text" id="adm-p-name" placeholder="Название промо">
+                <input type="number" id="adm-p-gift" placeholder="Сумма награды">
+                <button id="adm-create-p">9. Создать промокод</button>
+                <button id="adm-wipe-p">10. Удалить все промокоды</button>
+            </div>
+            <div class="adm-section">
+                <h5>Ресурсы и Глобальные опции:</h5>
+                <button id="adm-inf-e">11. Бесконечная энергия (100k)</button>
+                <button id="adm-add-pph">12. Добавить +50,000 в час</button>
+                <button id="adm-mass">13. Раздача всем (Массовая)</button>
+                <button id="adm-ban">14. Переключить Бан / Разбан</button>
+                <button id="adm-reset" style="background:#ff4757; color: white;">15. Жесткий сброс (Все с нуля!)</button>
+            </div>
+        </div>
+        <button class="btn-action" id="adm-back-btn" style="background:#444; margin-top:10px; color: white;">Выйти из панели</button>
+    </div>
+
+    <div class="bottom">
+        <button class="nav-btn active" data-target="home">🏠<br><span>Main</span></button>
+        <button class="nav-btn" data-target="mine">⛏️<br><span>Mine</span></button>
+        <button class="nav-btn" data-target="earn">🎁<br><span>Earn</span></button>
+        <button class="nav-btn" data-target="friends">👥<br><span>Friends</span></button>
+        <button class="nav-btn" data-target="rank">🏆<br><span>Top</span></button>
+        <button class="nav-btn" data-target="pvp">⚔️<br><span>PvP</span></button>
+        <button class="nav-btn" data-target="profile">👤<br><span>Profile</span></button>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+<script src="js/api.js"></script>
+<script src="js/game.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/leaderboard.js"></script>
+</body>
+</html>
