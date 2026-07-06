@@ -1,31 +1,81 @@
-.screen { display: none; flex: 1; overflow-y: auto; padding: 15px; padding-bottom: 85px; }
-.screen.active { display: block; }
-.top { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: var(--card-bg); border-bottom: 1px solid var(--border); }
-.user-block { display: flex; align-items: center; gap: 8px; }
-.avatar { font-size: 24px; background: #222; padding: 4px; border-radius: 50%; }
-.username { font-size: 13px; font-weight: bold; }
-.level { font-size: 10px; color: var(--yellow); }
-.coins { background: var(--card-light); padding: 5px 12px; border-radius: 20px; font-weight: 800; border: 1px solid var(--border); color: var(--yellow); }
+/* css/main.css */
+body {
+    background-color: #07080a;
+    color: #ffffff;
+}
 
-.income-info { text-align: center; background: var(--card-bg); width: fit-content; margin: 10px auto; padding: 4px 12px; border-radius: 15px; font-size: 12px; color: var(--text-muted); border: 1px solid var(--border); }
-.income-info span { color: #fff; font-weight: bold; }
-.tap-area { display: flex; justify-content: center; margin: 25px 0; }
-.circle { width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 94, 0, 0.25) 0%, transparent 75%); border: 4px solid rgba(255, 94, 0, 0.4); display: flex; justify-content: center; align-items: center; font-size: 80px; cursor: pointer; box-shadow: 0 0 25px rgba(255, 94, 0, 0.15); transition: transform 0.05s ease; }
+.game {
+    background: #0b0c11;
+    border: 1px solid #1c1f2b;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
-.stats-row { display: flex; gap: 8px; margin-bottom: 15px; }
-.stat-box { flex: 1; background: var(--card-bg); padding: 10px; border-radius: var(--radius); text-align: center; font-size: 12px; border: 1px solid var(--border); }
-.stat-box span { font-weight: bold; color: var(--orange); }
+/* Верхняя панель */
+.top {
+    background: #12141c;
+    border-bottom: 1px solid #252936;
+    padding: 14px 16px;
+}
 
-.energy-section { margin-top: 10px; }
-.energy-text { text-align: center; font-size: 12px; font-weight: bold; margin-bottom: 4px; }
-.energy-bar { width: 100%; height: 10px; background: #222; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-#energyFill { height: 100%; width: 100%; background: linear-gradient(90deg, var(--orange), var(--yellow)); transition: width 0.1s; }
+.username {
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+}
 
-.bottom { display: flex; justify-content: space-around; align-items: center; padding: 6px 4px; background: #10121aba; backdrop-filter: blur(10px); border-top: 1px solid var(--border); height: 65px; }
-.nav-btn { background: none; border: none; color: var(--text-muted); font-size: 15px; cursor: pointer; flex: 1; text-align: center; line-height: 1.2; }
-.nav-btn span { font-size: 9px; font-weight: 500; }
-.nav-btn.active { color: var(--orange); }
+.level {
+    font-size: 11px;
+    color: #ffb700;
+    margin-top: 2px;
+}
 
-#loader { position: absolute; top:0; left:0; bottom:0; right:0; background: var(--bg-black); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.loader-logo { font-size: 45px; margin-bottom: 5px; }
-.loader-text { font-size: 14px; font-weight: bold; letter-spacing: 2px; color: var(--orange); } 
+.coins {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffb700;
+    text-shadow: 0 0 10px rgba(255, 183, 0, 0.2);
+}
+
+/* Главный экран тапалки */
+.circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 94, 0, 0.2) 0%, transparent 70%);
+    border: 3px solid rgba(255, 94, 0, 0.3);
+    box-shadow: 0 0 35px rgba(255, 94, 0, 0.15);
+    transition: transform 0.05s ease;
+}
+
+.circle:active {
+    transform: scale(0.95);
+}
+
+/* Энергия */
+.energy-bar {
+    height: 12px;
+    background: #15171e;
+    border: 1px solid #252936;
+    border-radius: 20px;
+}
+
+#energyFill {
+    background: linear-gradient(90deg, #ff5e00, #ffb700);
+    box-shadow: 0 0 8px rgba(255, 94, 0, 0.5);
+}
+
+/* Нижнее меню навигации */
+.bottom {
+    background: rgba(18, 20, 28, 0.92);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid #252936;
+}
+
+.nav-btn {
+    color: #747a8a;
+    transition: color 0.2s;
+}
+
+.nav-btn.active {
+    color: #ff5e00;
+}
